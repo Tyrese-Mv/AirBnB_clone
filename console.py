@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import cmd
 import models.base_model as base
 
