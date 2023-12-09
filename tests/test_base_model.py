@@ -6,6 +6,7 @@ import os
 import datetime
 from models.base_model import BaseModel
 
+
 class TestBaseModel(unittest.TestCase):
-    def test_type(self):
+    def test_(self):
         pass

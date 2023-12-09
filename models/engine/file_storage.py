@@ -2,39 +2,39 @@
 """File storage class"""
 import json
 import os
- 
+
+
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
-    
+
     def all(self):
-        return FileStorage.__objects
-    
+        return self.__objects
+
     def new(self, obj):
-        key = "{}.{}".format(obj.__class__.__name__,obj.id)
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
         if key not in self.__objects:
-            self.__objects[key] = obj.to_dict()
-        print("New method on file storage")
-        i = 0
-        for keys in self.__objects:
-            i+=1
-            print("{}. {}".format(i, self.__objects[keys]))
-            print()
-            print()
-        print("______________________objects")
-        
-    
-    
+            self.__objects[key] = obj
+
+    def deseriaReload(self):
+        from models.base_model import BaseModel
+        otherClassImports = {
+            "BaseModel": BaseModel
+        }
+        return otherClassImports
+
     def save(self):
         with open(self.__file_path, "w", encoding="utf-8") as file:
-            empty_dict = {k: v for k, v in FileStorage.__objects.items()}
-            for key, value in empty_dict.items():
-                print(f"key: {key}")
-                class_name, obj_id = key.split('.')
-                obj = FileStorage.all(self)[key]
-                empty_dict[key] = obj
+            empty_dict = {k: v.to_dict() for k, v, in self.__objects.items()}
+            # for key, value in empty_dict.items():
+            #     # print(f"key: {key}")
+            #     class_name, obj_id = key.split('.')
+            #     obj = self.all(self)[key]
+            #     empty_dict[key] = obj
+            # # print("Before Dumping")
+            # # print(empty_dict)
             json.dump(empty_dict, file, indent=4)
-    
+
     def reload(self):
         try:
             with open(self.__file_path, "r", encoding="utf-8") as file:
@@ -43,8 +43,15 @@ class FileStorage:
                 #     obj = BaseModel(**value)
                 #     self.__objects[key] = obj
                 myDict = json.load(file)
-                emptyDict = {k: val for k, val in myDict.items()}
-                FileStorage.__objects = emptyDict
+                # print("******before overwriting __object*****")
+                # print(myDict)
+                # print()
+                emptyDict = {
+                        k: self.deseriaReload()[val["__class__"]](**val)
+                        for k, val in myDict.items()
+                    }  # To Note!!!!!!!!!!!!!!
+                self.__objects = emptyDict
+                # print("******after overwriting __object*****")
+                # print(self.__objects)
         except FileNotFoundError:
             pass
-        
