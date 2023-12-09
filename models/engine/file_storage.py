@@ -47,8 +47,8 @@ class FileStorage:
                 # print(myDict)
                 # print()
                 emptyDict = {
-                        k: self.deseriaReload()[val["__class__"]](**val)
-                        for k, val in myDict.items()
+                        key: self.deseriaReload()[val["__class__"]](**val)
+                        for key, val in myDict.items()
                     }  # To Note!!!!!!!!!!!!!!
                 self.__objects = emptyDict
                 # print("******after overwriting __object*****")
