@@ -9,6 +9,8 @@ class BaseModel:
     """Base Model class instatiating public instances"""
 
     def __init__(self, *arg, **kwargs):
+        """Instantiate using keyword-arguments, or 
+        the generic way"""
         if len(kwargs) > 0:
             if "__class__" in kwargs:
                 del kwargs["__class__"]
@@ -24,16 +26,19 @@ class BaseModel:
             storage.new(self)
 
     def __str__(self):
+        """overrides string representation of the the class"""
         return "[{}] ({}) {}".format(
             self.__class__.__name__,
             self.id, self.__dict__
             )
 
     def save(self):
+        """saves the object to a json file"""
         storage.save()
         # self.updated_at = datetime.datetime.now()
 
     def to_dict(self):
+        """converts class to a dictionary"""
         mydict = self.__dict__.copy()
         mydict["__class__"] = str(self.__class__.__name__)
         mydict["created_at"] = self.created_at.isoformat()
