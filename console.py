@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import cmd
+import sys
 import models.base_model as base
 
 listOfClass = {
@@ -8,7 +9,8 @@ listOfClass = {
 
 
 class HBNBCommand(cmd.Cmd):
-    prompt = "(hbnb) "
+    if sys.stdin.isatty():
+        prompt = "(hbnb) "
 
     def do_quit(self, arg):
         """Quit command to to exit the program"""
