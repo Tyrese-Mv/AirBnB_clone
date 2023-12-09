@@ -3,15 +3,14 @@ import cmd
 import sys
 import models.base_model as base
 
-listOfClass = {
-    "BaseModel": base.BaseModel
-}
-
 
 class HBNBCommand(cmd.Cmd):
     if sys.stdin.isatty():
         prompt = "(hbnb) "
 
+    listOfClass = {
+        "BaseModel": base.BaseModel
+    }
     def do_quit(self, arg):
         """Quit command to to exit the program"""
         return True
