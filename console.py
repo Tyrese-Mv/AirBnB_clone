@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
             if inputkey in storedObjs.keys():
                 print(storedObjs[inputkey])
             else:
-                print("** instance id doesn't exist **")
+                print("** no instance found **")
 
     def do_destroy(self, delete):
         """deletes object instance"""
@@ -77,8 +77,31 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, updates):
-        if updates.split(" ")[0] not in self.listOfClass:
+        arguments = updates.split(" ")
+        if arguments[0] not in self.listOfClass:
+            print("** class doesn't exist **")
+            return
+        elif len(arguments) == 0:
             print("** class name missing **")
+            return
+        elif len(arguments) == 1:
+            print("** instance id missing **")
+            return
+        inputkey = "{}.{}".format(arguments[0], arguments[1])
+        storedObjs = base.storage.all()
+        if inputkey not in storedObjs.keys():
+            print("** no instance found **")
+            return
+        if len(arguments) == 2:
+            print("** attribute name missing **")
+            return
+        
+        if inputkey in storedObjs.keys(): # and arguments[2] in storedObjs[inputkey]:
+            mod = storedObjs[inputkey]
+            setattr(mod, arguments[2], arguments[3])
+            mod.save()
+        else:
+            print("** value missing **")
 
     do_EOF = do_quit
 
