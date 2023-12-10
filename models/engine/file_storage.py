@@ -22,8 +22,10 @@ class FileStorage:
         """imports and returns a class based on a list
         of classes"""
         from models.base_model import BaseModel
+        from models.user import User
         otherClassImports = {
-            "BaseModel": BaseModel
+            "BaseModel": BaseModel,
+            "User": User
         }
         return otherClassImports
 

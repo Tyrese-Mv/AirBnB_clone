@@ -2,6 +2,7 @@
 import cmd
 import sys
 import models.base_model as base
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -9,7 +10,8 @@ class HBNBCommand(cmd.Cmd):
         prompt = "(hbnb) "
 
     listOfClass = {
-        "BaseModel": base.BaseModel
+        "BaseModel": base.BaseModel,
+        "User": User
     }
 
     def do_quit(self, arg):
