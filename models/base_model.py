@@ -9,7 +9,7 @@ class BaseModel:
     """Base Model class instatiating public instances"""
 
     def __init__(self, *arg, **kwargs):
-        """Instantiate using keyword-arguments, or 
+        """Instantiate using keyword-arguments, or
         the generic way"""
         if len(kwargs) > 0:
             if "__class__" in kwargs:
