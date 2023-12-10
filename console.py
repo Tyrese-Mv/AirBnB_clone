@@ -79,11 +79,17 @@ class HBNBCommand(cmd.Cmd):
             objects = [str(x) for x in base.storage.all().values()]
             print(objects)
         elif allObj in self.listOfClass:
-            obj = [
-                str(value)
-                for key, value in base.storage.all().items()
-                if key.split(".")[0] == allObj
-            ]
+            if hasattr(self.listOfClass[allObj], 'all'):
+                obj = [
+                    str(obj) 
+                    for obj in self.listOfClass[allObj].all()
+                    ]
+            else:
+                obj = [
+                    str(value)
+                    for key, value in base.storage.all().items()
+                    if key.split(".")[0] == allObj
+                    ]
             print(obj)
         else:
             print("** class doesn't exist **")
