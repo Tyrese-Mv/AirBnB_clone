@@ -95,8 +95,7 @@ class HBNBCommand(cmd.Cmd):
         if len(arguments) == 2:
             print("** attribute name missing **")
             return
-        
-        if inputkey in storedObjs.keys(): # and arguments[2] in storedObjs[inputkey]:
+        if inputkey in storedObjs.keys():
             mod = storedObjs[inputkey]
             setattr(mod, arguments[2], arguments[3])
             mod.save()
