@@ -77,6 +77,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id doesn't exist **")
 
     def do_all(self, allObj):
+        """prints all saved objects"""
         if allObj == ".":
             objects = [str(x) for x in base.storage.all().values()]
             print(objects)
@@ -97,6 +98,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, updates):
+        """updates objects of specified instance"""
         arguments = updates.split(" ")
         if arguments[0] not in self.listOfClass:
             print("** class doesn't exist **")
