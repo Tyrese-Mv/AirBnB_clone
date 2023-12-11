@@ -34,7 +34,7 @@ All the development and testing was runned over an operating system Ubuntu 20.04
 ## 3. Installation
 
 ```bash
-git clone https://github.com/aysuarex/AirBnB_clone.git
+git clone https://github.com/Tyrese-Mv/AirBnB_clone.git
 ```
 
 change to the `AirBnb` directory and run the command:
@@ -247,5 +247,6 @@ e952b772-80a5-41e9-b728-6bc4dc5c21b4
 
 ## AUTHORS
 
-### Musawenkosi Tyrese Mvuna | [Email Me](musawenkosi106@gmail.com)
+### Musawenkosi Tyrese Mvuna  
+[Email Me](musawenkosi106@gmail.com)
 
