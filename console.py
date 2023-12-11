@@ -30,6 +30,11 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to to exit the program"""
         return True
 
+    def do_eof(self, arg):
+        """eof for quiting"""
+        if arg == "eof"
+            do_quit(arg)
+
     def do_create(self, creation):
         """Craetes new object"""
         if not creation:
@@ -124,7 +129,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** value missing **")
 
-    do_EOF = do_quit
 
 
 if __name__ == '__main__':
