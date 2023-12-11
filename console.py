@@ -11,6 +11,8 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
+    """Entry point"""
+
     if sys.stdin.isatty():
         prompt = "(hbnb) "
 
