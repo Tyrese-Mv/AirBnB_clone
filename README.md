@@ -247,5 +247,5 @@ e952b772-80a5-41e9-b728-6bc4dc5c21b4
 ## AUTHORS
 
 ### Musawenkosi Tyrese Mvuna  
-[Email Me](musawenkosi106@gmail.com)
+[Let's connect](https://www.linkedin.com/in/tyresemvuna)
 
