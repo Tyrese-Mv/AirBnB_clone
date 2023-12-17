@@ -11,6 +11,8 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
+    """Entry point"""
+
     if sys.stdin.isatty():
         prompt = "(hbnb) "
 
@@ -27,6 +29,11 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg):
         """Quit command to to exit the program"""
         return True
+
+    def do_eof(self, arg):
+        """eof for quiting"""
+        if arg == "eof"
+            do_quit(arg)
 
     def do_create(self, creation):
         """Craetes new object"""
@@ -75,6 +82,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id doesn't exist **")
 
     def do_all(self, allObj):
+        """prints all saved objects"""
         if allObj == ".":
             objects = [str(x) for x in base.storage.all().values()]
             print(objects)
@@ -95,6 +103,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, updates):
+        """updates objects of specified instance"""
         arguments = updates.split(" ")
         if arguments[0] not in self.listOfClass:
             print("** class doesn't exist **")
@@ -120,7 +129,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** value missing **")
 
-    do_EOF = do_quit
 
 
 if __name__ == '__main__':
