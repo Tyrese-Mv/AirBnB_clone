@@ -62,7 +62,7 @@ button:hover{
 .popover {
     display: none;
     margin:0;
-    /* position: absolute; */
+    
     max-width: 100%;
     text-align: center;
     background-color: #FAFAFA;
@@ -97,6 +97,7 @@ button:hover{
 
 .locations:hover .popover,
 .amenities:hover .popover {
-  display: block;
-  transition: ease-in-out;
+    z-index:99;
+    display: block;
+    transition: ease-in-out;
 }
