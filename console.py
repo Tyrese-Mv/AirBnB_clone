@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""command line terminal"""
 import cmd
 import sys
 import models.base_model as base
@@ -89,7 +90,7 @@ class HBNBCommand(cmd.Cmd):
         elif allObj in self.listOfClass:
             if hasattr(self.listOfClass[allObj], 'all'):
                 obj = [
-                    str(obj) 
+                    str(obj)
                     for obj in self.listOfClass[allObj].all()
                     ]
             else:
@@ -128,7 +129,6 @@ class HBNBCommand(cmd.Cmd):
             mod.save()
         else:
             print("** value missing **")
-
 
 
 if __name__ == '__main__':
