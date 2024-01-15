@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_eof(self, arg):
         """eof for quiting"""
-        if arg == "eof"
+        if arg == "eof":
             do_quit(arg)
 
     def do_create(self, creation):
