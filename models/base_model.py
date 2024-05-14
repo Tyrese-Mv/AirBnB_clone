@@ -6,7 +6,7 @@ import datetime
 class BaseModel:
     """BaseModel Class"""
     def __init__(self, *args, **kwargs):
-        if len(kwargs) > 0:
+        if len(kwargs) > 0 :
             if "__class__" in kwargs:
                 del kwargs["__class__"]
             for key, value in kwargs.items():
