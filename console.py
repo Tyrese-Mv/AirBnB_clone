@@ -31,10 +31,10 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to to exit the program"""
         return True
 
-    def do_eof(self, arg):
+    def do_EOF(self, arg):
         """eof for quiting"""
         if arg == "eof":
-            return True
+            HBNBCommand.do_quit()
 
     def do_create(self, creation):
         """Creates new object"""
