@@ -21,10 +21,22 @@ class FileStorage:
         """imports and returns a class based on a list
         of classes"""
         from models.base_model import BaseModel
-        otherClassImports = {
+        from models.user import User
+        from models.state import State
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.city import City
+        from models.review import Review
+        ClassImports = {
             "BaseModel": BaseModel,
+            "User": User,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Place": Place,
+            "Review": Review
         }
-        return otherClassImports
+        return ClassImports
 
     def save(self):
         """saves the dictionary to the json file"""
