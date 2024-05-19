@@ -19,6 +19,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
+            storage.new(self)
 
 
     def __str__(self):
@@ -43,7 +44,7 @@ class BaseModel:
         Returns:
             dict: dictionary with value of the instances
         """
-        myDict = self.__dict__
+        myDict = self.__dict__.copy()
         myDict['__class__'] = self.__class__.__name__
         myDict['updated_at'] = self.updated_at.isoformat()
         myDict['created_at'] = self.created_at.isoformat()
