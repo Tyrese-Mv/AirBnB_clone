@@ -2,6 +2,7 @@
 """Base model module"""
 import uuid
 import datetime
+from models import storage
 
 class BaseModel:
     """BaseModel Class"""
@@ -26,12 +27,15 @@ class BaseModel:
         Returns:
             string: [<class name>] (<self.id>) <self.__dict__>
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id, self.__dict__
+            )
 
     def save(self):
         """sets new value for the updated time
         """
-        self.updated_at = datetime.datetime.now()
+        storage.save()
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__ of the instance:
