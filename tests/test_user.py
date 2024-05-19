@@ -4,10 +4,10 @@ from models.user import User
 from datetime import datetime
 from models.base_model import BaseModel
 
+
 class TestUser(unittest.TestCase):
     """Unit test for User Class"""
-    
-    
+
     def test_instance_creation(self):
         user = User()
         self.assertIsInstance(user, User)
@@ -48,11 +48,21 @@ class TestUser(unittest.TestCase):
         }
         user = User(**user_data)
         user_dict = user.to_dict()
-        expected_keys = ['id', 'created_at', 'updated_at', 'email', 'password', 'first_name', 'last_name', '__class__']
+        expected_keys = [
+            'id',
+            'created_at',
+            'updated_at',
+            'email',
+            'password',
+            'first_name',
+            'last_name',
+            '__class__'
+            ]
         self.assertCountEqual(user_dict.keys(), expected_keys)
         self.assertEqual(user_dict['__class__'], 'User')
         self.assertIsInstance(user_dict['created_at'], str)
         self.assertIsInstance(user_dict['updated_at'], str)
+
 
 if __name__ == '__main__':
     unittest.main()
